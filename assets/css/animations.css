@@ -1,0 +1,62 @@
+/* Animation and Scroll Styles */
+
+/* Base class for GSAP reveal items to prevent FOUC if needed */
+.gsap-reveal {
+    visibility: hidden;
+}
+
+/* Active Navigation Link Styling */
+.nav-link {
+    position: relative;
+    /* transition is handled by tailwind classes usually, but we ensure color trans is smooth */
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2A9D8F; /* accent color */
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 99px;
+    box-shadow: 0 0 10px rgba(42, 157, 143, 0.4);
+}
+
+.nav-link.active {
+    color: #2A9D8F !important; /* override default text color to accent */
+    font-weight: 800; /* make active link bold */
+}
+
+/* Dark mode active link behavior using Tailwind dark modifier conceptually */
+.dark .nav-link.active {
+    color: #8cf5e4 !important; /* primary-fixed light teal */
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

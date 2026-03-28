@@ -1,0 +1,426 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Privacy Policy | Subslator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/css/animations.css" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              accent: "#2A9D8F",
+              "accent-soft": "rgba(42, 157, 143, 0.1)",
+              "tertiary-container": "#d3795b",
+              "inverse-primary": "#006a60",
+              "on-error": "#690005",
+              "on-background": "#dce2f7",
+              tertiary: "#ffb59e",
+              "surface-container-low": "#141b2b",
+              "on-error-container": "#ffdad6",
+              surface: "#0c1322",
+              background: "#0c1322",
+              "on-primary-container": "#00302a",
+              error: "#ffb4ab",
+              "surface-container": "#191f2f",
+              secondary: "#a7cec7",
+              "on-tertiary-fixed-variant": "#77321a",
+              "on-secondary-fixed": "#00201c",
+              "on-tertiary-fixed": "#390b00",
+              "primary-fixed-dim": "#6fd8c8",
+              "inverse-surface": "#dce2f7",
+              "surface-container-high": "#232a3a",
+              "on-tertiary": "#5a1c06",
+              "on-secondary-container": "#96bdb5",
+              "surface-dim": "#0c1322",
+              "inverse-on-surface": "#293040",
+              "primary-fixed": "#8cf5e4",
+              "on-primary-fixed": "#00201c",
+              "secondary-container": "#284d47",
+              "tertiary-fixed-dim": "#ffb59e",
+              "primary-container": "#30a193",
+              primary: "#2A9D8F",
+              "tertiary-fixed": "#ffdbd0",
+              "surface-tint": "#2A9D8F",
+              "on-primary": "#ffffff",
+              outline: "#879390",
+              "surface-container-highest": "#2e3545",
+              "on-tertiary-container": "#501502",
+              "on-secondary-fixed-variant": "#284d47",
+              "on-surface-variant": "#bcc9c6",
+              "surface-bright": "#323949",
+              "surface-variant": "#2e3545",
+              "on-primary-fixed-variant": "#005048",
+              "on-secondary": "#0f3631",
+              "surface-container-lowest": "#070e1d",
+              "error-container": "#93000a",
+              "on-surface": "#dce2f7",
+              "outline-variant": "#3d4947",
+              "secondary-fixed": "#c3ebe2",
+              "secondary-fixed-dim": "#a7cec7",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0c1322;
+        color: #dce2f7;
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .hero-gradient {
+        background: radial-gradient(circle at top center, rgba(42, 157, 143, 0.15), transparent 60%);
+      }
+      .glass-card {
+        background: rgba(46, 53, 69, 0.3);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .btn-primary {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        color: white;
+        background: transparent;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+        box-shadow: 0 0 20px rgba(42, 157, 143, 0.4);
+      }
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        top: -100%;
+        left: -100%;
+        background: conic-gradient(from 0deg, transparent 0%, rgba(42, 157, 143, 0.1) 20%, #8cf5e4 50%, rgba(42, 157, 143, 0.1) 80%, transparent 100%);
+        animation: spin 3s linear infinite;
+        z-index: -2;
+      }
+      @keyframes spin { 100% { transform: rotate(360deg); } }
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: #0c1322;
+        border-radius: 9999px;
+        z-index: -1;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(42, 157, 143, 0.6);
+      }
+      .btn-primary:hover::after {
+        background: rgba(42, 157, 143, 0.15);
+      }
+    </style>
+  </head>
+  <body class="selection:bg-accent/30 selection:text-accent">
+    <!-- TopNavBar -->
+    <header>
+      <nav id="navbar" class="fixed top-4 left-0 right-0 mx-auto w-[90%] max-w-7xl z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-[1.5rem] shadow-lg dark:shadow-teal-900/20 transition-all duration-300">
+        <div class="flex justify-between items-center px-6 md:px-8 py-4">
+          <div class="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">
+            <a href="index.html" class="flex items-center gap-2">
+              <img src="./images/subslator-logo.png" alt="Subslator" class="w-10 h-10 rounded-md" />
+              <span>Subslator</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="index.html#how-it-works">How it Works</a>
+            <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="index.html#features">Features</a>
+            <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="index.html#vision">Vision</a>
+          </div>
+          <div class="flex items-center gap-4">
+            <button class="btn-primary group !px-6 !py-4 !text-sm hidden md:flex">
+              <img src="./images/icons/chrome-icon.png" alt="Chrome" class="w-5 h-5">
+              Add to Chrome
+            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white p-2 focus:outline-none flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+              <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50">
+          <div class="flex flex-col p-4 space-y-2">
+            <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors" href="index.html#how-it-works">How it Works</a>
+            <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors" href="index.html#features">Features</a>
+            <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors" href="index.html#vision">Vision</a>
+            <div class="pt-4 pb-2 px-2">
+              <button class="btn-primary w-full !py-3 !text-sm">
+                <img src="./images/icons/chrome-icon.png" alt="Chrome" class="w-5 h-5">
+                Add to Chrome
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <main class="hero-gradient pt-40 pb-32 px-8 min-h-screen relative">
+      <div class="max-w-4xl mx-auto glass-card p-10 md:p-16 rounded-[2.5rem] mt-8 mb-12 shadow-2xl relative z-10">
+        
+        <div class="border-b border-white/10 pb-8 mb-10 text-center">
+           <h1 class="text-4xl md:text-5xl font-headline font-extrabold text-white mb-4 tracking-tight">Privacy Policy for Subslator</h1>
+           <p class="text-sm text-accent font-bold uppercase tracking-widest bg-accent-soft inline-block px-4 py-1.5 rounded-full">Last updated: March 2026</p>
+        </div>
+        
+        <div class="space-y-12 text-on-surface-variant text-lg leading-relaxed font-body">
+          
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">info</span> 1. Overview
+             </h2>
+             <p>Subslator is a Chrome extension designed to help users understand and translate subtitles directly while watching videos. This Privacy Policy explains what data we collect, how we use it, and how we protect your information.</p>
+             <p>We are committed to ensuring that your privacy is protected. Subslator is built with a privacy-first approach and collects only the minimum data necessary to provide its core functionality.</p>
+          </section>
+
+          <section class="space-y-6">
+             <h2 class="text-2xl font-headline font-bold text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">visibility_off</span> 2. Information We Collect
+             </h2>
+             
+             <div class="space-y-3 pl-4 border-l-2 border-white/10">
+                <h3 class="text-xl font-bold text-white">2.1 No Personal Data Collection</h3>
+                <p>Subslator does <strong class="text-white">not collect, store, or share any personally identifiable information (PII)</strong> such as:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Location data</li>
+                    <li>Account credentials</li>
+                </ul>
+             </div>
+             
+             <div class="space-y-3 pl-4 border-l-2 border-white/10">
+                <h3 class="text-xl font-bold text-white">2.2 Text Processing (User-Selected Content)</h3>
+                <p>When you use Subslator:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>The extension processes <strong class="text-white">text that you select</strong> (e.g., subtitle words or phrases)</li>
+                    <li>This text may be sent to a translation API to provide:
+                        <ul class="list-[circle] pl-5 mt-1 space-y-1 text-on-surface-variant/80">
+                            <li>Translation</li>
+                            <li>Word meaning</li>
+                            <li>Pronunciation</li>
+                            <li>Definitions</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="bg-surface p-4 rounded-xl border border-white/5 mt-4 text-sm font-medium">
+                    <span class="text-xl inline-block mr-2">👉</span> This processing is done <strong class="text-accent">only when you actively select text</strong>.
+                </div>
+             </div>
+             
+             <div class="space-y-3 pl-4 border-l-2 border-white/10">
+                <h3 class="text-xl font-bold text-white">2.3 Automatically Collected Data</h3>
+                <p>Subslator does <strong class="text-white">not automatically collect</strong>:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Browsing history</li>
+                    <li>Keystrokes</li>
+                    <li>Page content (except selected text)</li>
+                    <li>Cookies or tracking data</li>
+                </ul>
+             </div>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">memory</span> 3. How We Use Information
+             </h2>
+             <p>We use the selected text solely to:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>Detect the source language</li>
+                <li>Translate content into the user’s selected language</li>
+                <li>Provide word meanings, pronunciation, and definitions</li>
+                <li>Improve the accuracy and performance of translations</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">api</span> 4. Third-Party Services
+             </h2>
+             <p>Subslator may use third-party APIs for:</p>
+             <ul class="list-disc pl-5 space-y-1 mb-4">
+                <li>Language detection</li>
+                <li>Translation</li>
+                <li>Dictionary data</li>
+             </ul>
+             <p>These services may temporarily process the selected text to return results. We do <strong class="text-white">not control</strong> how these services handle data, so we recommend reviewing their respective privacy policies.</p>
+             <p class="font-bold text-white mt-4">However:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>We do <strong class="text-white">not store or log</strong> any text sent to these services</li>
+                <li>Data is used only for real-time response</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">storage</span> 5. Data Storage
+             </h2>
+             <p>Subslator stores minimal data locally in your browser, such as:</p>
+             <ul class="list-disc pl-5 space-y-1 mb-4">
+                <li>User preferences (e.g., selected target language)</li>
+                <li>UI settings</li>
+             </ul>
+             <p class="font-bold text-white">This data:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>Never leaves your device</li>
+                <li>Is not shared with any external server</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">share_off</span> 6. Data Sharing
+             </h2>
+             <p>We do <strong class="text-white">not sell, trade, or share</strong> your data with third parties.</p>
+             <p>Your data is only shared when necessary to:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>Process translations via third-party APIs (as described above)</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">shield</span> 7. Security
+             </h2>
+             <p>We take reasonable measures to protect your data:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>No sensitive data is stored</li>
+                <li>Communication with APIs is done over secure connections (HTTPS)</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">tune</span> 8. Your Control
+             </h2>
+             <p>You are always in control:</p>
+             <ul class="list-disc pl-5 space-y-1">
+                <li>Subslator only works when you select text</li>
+                <li>You can disable or uninstall the extension at any time</li>
+                <li>You can clear stored preferences from your browser settings</li>
+             </ul>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">child_care</span> 9. Children's Privacy
+             </h2>
+             <p>Subslator is not intended for children under the age of 13. We do not knowingly collect any data from children.</p>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">update</span> 10. Changes to This Policy
+             </h2>
+             <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date.</p>
+          </section>
+
+          <section class="space-y-4">
+             <h2 class="text-2xl font-headline font-bold text-white mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent">mail</span> 11. Contact
+             </h2>
+             <p>If you have any questions about this Privacy Policy, you can contact:</p>
+             <p class="font-bold text-white mt-2">
+               Developer / Publisher: <span class="font-normal text-on-surface-variant">Tecursive</span><br/>
+               Email: <a href="mailto:support@subslator.com" class="text-accent hover:underline">support@subslator.com</a>
+             </p>
+          </section>
+
+          <section class="bg-accent-soft p-8 rounded-[2rem] border border-accent/20 mt-12 text-on-surface-variant">
+             <h2 class="text-2xl font-headline font-bold text-white mb-6">12. Summary (Simple Version)</h2>
+             <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                   <span class="material-symbols-outlined text-accent shrink-0">check_circle</span>
+                   <span>We <strong class="text-white">do not collect personal data</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                   <span class="material-symbols-outlined text-accent shrink-0">check_circle</span>
+                   <span>We only process <strong class="text-white">text you select</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                   <span class="material-symbols-outlined text-accent shrink-0">check_circle</span>
+                   <span>We use <strong class="text-white">third-party APIs for translation</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                   <span class="material-symbols-outlined text-accent shrink-0">check_circle</span>
+                   <span>We store only <strong class="text-white">basic settings locally</strong></span>
+                </li>
+                <li class="flex items-start gap-3">
+                   <span class="material-symbols-outlined text-accent shrink-0">check_circle</span>
+                   <span>Your privacy is <strong class="text-white">respected and protected</strong></span>
+                </li>
+             </ul>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-16 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+        <div class="space-y-6">
+          <div class="text-2xl font-bold text-slate-900 dark:text-white tracking-tighter">
+            <a href="index.html" class="flex gap-2 items-center">
+              <img src="./images/subslator-logo.png" alt="Subslator" class="w-10 h-10 rounded-md" />
+              <span>Subslator</span>
+            </a>
+          </div>
+          <p class="font-inter text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Precision in every frame. Empowering learners to understand the world through cinema and storytelling.
+          </p>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">Product</h4>
+          <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors" href="index.html#features">Features</a>
+          <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors" href="index.html#how-it-works">How it Works</a>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">Legals</h4>
+          <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors" href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <div class="space-y-6">
+          <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">Copyright</h4>
+          <p class="font-inter text-sm text-slate-500 dark:text-slate-400">© 2026 Subslator. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
