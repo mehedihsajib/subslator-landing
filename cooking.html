@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Subslator | Feature Cooking</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-secondary-container": "#96bdb5",
+                        "inverse-surface": "#dce2f7",
+                        "on-secondary-fixed-variant": "#284d47",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#ffb59e",
+                        "surface-bright": "#323949",
+                        "surface-container-high": "#232a3a",
+                        "on-surface": "#dce2f7",
+                        "on-tertiary-fixed-variant": "#77321a",
+                        "outline": "#879390",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-container": "#284d47",
+                        "on-surface-variant": "#bcc9c6",
+                        "on-secondary": "#0f3631",
+                        "primary-container": "#30a193",
+                        "surface": "#0c1322",
+                        "on-tertiary-container": "#501502",
+                        "surface-tint": "#6fd8c8",
+                        "secondary-fixed-dim": "#a7cec7",
+                        "on-tertiary": "#5a1c06",
+                        "surface-dim": "#0c1322",
+                        "primary": "#6fd8c8",
+                        "on-primary-fixed": "#00201c",
+                        "on-tertiary-fixed": "#390b00",
+                        "inverse-primary": "#006a60",
+                        "on-primary-container": "#00302a",
+                        "on-error": "#690005",
+                        "tertiary-container": "#d3795b",
+                        "background": "#0c1322",
+                        "secondary-fixed": "#c3ebe2",
+                        "on-primary": "#003731",
+                        "on-background": "#dce2f7",
+                        "surface-container-low": "#141b2b",
+                        "surface-container-highest": "#2e3545",
+                        "surface-variant": "#2e3545",
+                        "primary-fixed-dim": "#6fd8c8",
+                        "error-container": "#93000a",
+                        "outline-variant": "#3d4947",
+                        "inverse-on-surface": "#293040",
+                        "primary-fixed": "#8cf5e4",
+                        "secondary": "#a7cec7",
+                        "surface-container": "#191f2f",
+                        "on-primary-fixed-variant": "#005048",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "surface-container-lowest": "#070e1d",
+                        "error": "#ffb4ab"
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        display: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Floating Words Animation */
+        @keyframes float-word {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(200px) translateX(-50px) rotate(15deg);
+                opacity: 0;
+            }
+        }
+
+        .word-particle {
+            position: absolute;
+            animation: float-word 4s linear infinite;
+        }
+
+        /* Robot Shake Animation */
+        @keyframes robot-work {
+
+            0%,
+            100% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg) translateY(-2px);
+            }
+        }
+
+        .robot-active {
+            animation: robot-work 0.4s ease-in-out infinite;
+        }
+
+        /* Jar Glow */
+        .jar-glow {
+            box-shadow: 0 0 40px rgba(42, 157, 143, 0.3);
+        }
+
+        /* Easter Egg Shake */
+        .shake-active:active {
+            animation: shake 0.2s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Success Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #2A9D8F;
+            color: #fff;
+            text-align: center;
+            border-radius: 9999px;
+            padding: 12px 24px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 40px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(42, 157, 143, 0.4);
+            transform: translateX(-50%) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen overflow-x-hidden">
+    <header>
+        <nav id="navbar"
+            class="fixed top-4 left-0 right-0 mx-auto w-[90%] max-w-7xl z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-[1.5rem] shadow-lg dark:shadow-teal-900/20 transition-all duration-300">
+            <div class="flex justify-between items-center px-6 md:px-8 py-4">
+                <div class="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="./images/subslator-logo.png" alt="Subslator" class="w-10 h-10 rounded-md" />
+                        <span>Subslator</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        href="index.html#how-it-works">How it Works</a>
+                    <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        href="index.html#features">Features</a>
+                    <a class="nav-link font-manrope tracking-tight font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        href="index.html#vision">Vision</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://chromewebstore.google.com/detail/subslator/jfjiedckmfadkgkolenehemfpphjhhji"
+                        target="" class="btn-primary group !px-6 !py-4 !text-sm hidden md:flex">
+                        <img src="./images/icons/chrome-icon.png" alt="Chrome" class="w-5 h-5" />
+                        Add to Chrome
+                    </a>
+                    <button id="mobile-menu-btn"
+                        class="md:hidden text-slate-900 dark:text-white p-2 focus:outline-none flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50">
+                <div class="flex flex-col p-4 space-y-2">
+                    <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
+                        href="index.html#how-it-works">How it Works</a>
+                    <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
+                        href="index.html#features">Features</a>
+                    <a class="mobile-nav-link block px-4 py-3 rounded-xl font-manrope font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
+                        href="index.html#vision">Vision</a>
+                    <div class="pt-4 pb-2 px-2">
+                        <a href="https://chromewebstore.google.com/detail/subslator/jfjiedckmfadkgkolenehemfpphjhhji"
+                            target="_blank" class="btn-primary w-full !py-3 !text-sm">
+                            <img src="./images/icons/chrome-icon.png" alt="Chrome" class="w-5 h-5" />
+                            Add to Chrome
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="relative pt-32 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center">
+        <!-- Word Factory Visual Area -->
+        <div class="relative w-full h-[400px] mb-12 flex items-center justify-center">
+            <!-- Background Decorative Glow -->
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl rounded-full opacity-50">
+            </div>
+            <!-- Floating Words System -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <div class="word-particle top-10 left-1/3 text-primary/40 font-bold" style="animation-delay: 0.6s;">
+                    শুভেচ্ছা
+                </div>
+                <div class="word-particle top-10 left-1/4 text-primary/40 font-bold" style="animation-delay: 0s;">Hello
+                </div>
+                <div class="word-particle top-20 right-1/3 text-secondary/40 font-headline"
+                    style="animation-delay: 1.5s;">Hola</div>
+                <div class="word-particle top-5 left-1/2 text-tertiary/40" style="animation-delay: 0.8s;">こんにちは</div>
+                <div class="word-particle top-40 right-1/4 text-primary/40" style="animation-delay: 2.2s;">Guten Tag
+                </div>
+                <div class="word-particle top-10 right-1/2 text-secondary/40" style="animation-delay: 3s;">Bonjour</div>
+            </div>
+            <!-- Central Content: Robot & Jar -->
+            <div class="relative z-10 flex items-end gap-8">
+                <!-- The Tiny Robot (SVG) -->
+                <div class="robot-active flex flex-col items-center">
+                    <svg fill="none" height="150" viewbox="0 0 120 150" width="120" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#2A9D8F" fill-opacity="0.9" height="60" rx="12" width="70" x="25" y="50"></rect>
+                        <rect fill="#0C1322" height="30" rx="4" width="50" x="35" y="65"></rect>
+                        <circle cx="48" cy="80" fill="#6FD8C8" r="4">
+                            <animate attributename="opacity" dur="1s" repeatcount="indefinite" values="1;0.2;1">
+                            </animate>
+                        </circle>
+                        <circle cx="72" cy="80" fill="#6FD8C8" r="4">
+                            <animate attributename="opacity" dur="1s" repeatcount="indefinite" values="0.2;1;0.2">
+                            </animate>
+                        </circle>
+                        <rect fill="#2A9D8F" height="20" rx="5" width="10" x="55" y="30"></rect>
+                        <circle cx="60" cy="25" fill="#FFB4AB" r="5"></circle>
+                        <path d="M40 110 L30 140 M80 110 L90 140" stroke="#879390" stroke-linecap="round"
+                            stroke-width="6"></path>
+                        <path d="M25 80 L5 60 M95 80 L115 60" stroke="#2A9D8F" stroke-linecap="round" stroke-width="8">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- Text Content Card -->
+        <section
+            class="w-full max-w-2xl bg-surface-container-low/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl text-center shadow-2xl relative overflow-hidden group">
+            <div
+                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30">
+            </div>
+            <h1
+                class="text-4xl md:text-5xl font-extrabold font-display tracking-tight text-on-surface mb-6 leading-tight">
+                This feature is cooking... 🍳
+            </h1>
+            <p class="text-lg text-on-surface-variant font-body mb-4 max-w-lg mx-auto">
+                We’re building your personal word bookmark system so you can save and revisit tricky subtitle words.
+            </p>
+            <!-- <p class="text-sm text-[#2A9D8F] font-medium italic mb-10">
+                "Our tiny dev robot is still sorting the words… please give it a moment 🤖"
+            </p> -->
+            <!-- Progress Section -->
+            <div class="mb-12 space-y-3">
+                <div class="flex justify-between items-end px-1">
+                    <span class="text-xs font-label text-on-surface-variant uppercase tracking-wider">Calibrating
+                        dictionary...</span>
+                    <span class="text-primary font-bold">83%</span>
+                </div>
+                <div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                    <div class="h-full bg-primary w-[83%] relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Action Cluster -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="showSuccess()"
+                    class="bg-[#2A9D8F] text-white text-on-primary px-8 py-4 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm text-white"
+                        style="font-variation-settings: 'FILL' 1;">notifications</span>
+                    Notify me when ready
+                </button>
+            </div>
+            <!-- Easter Egg -->
+            <button
+                class="mt-12 text-xs text-on-surface-variant/40 hover:text-on-surface-variant transition-colors shake-active">
+                Try clicking again (it won’t help 😄)
+            </button>
+        </section>
+        <!-- Feature Grid (Subtle) -->
+        <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div
+                class="p-6 rounded-2xl bg-surface-container-high/20 border border-white/5 flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-primary">auto_stories</span>
+                </div>
+                <h3 class="font-bold mb-2">Instant Vocab</h3>
+                <p class="text-xs text-on-surface-variant">Hover any word in a subtitle to see its definition and add it
+                    to your bank instantly.</p>
+            </div>
+            <div
+                class="p-6 rounded-2xl bg-surface-container-high/20 border border-white/5 flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-secondary">quiz</span>
+                </div>
+                <h3 class="font-bold mb-2">Smart Quizzes</h3>
+                <p class="text-xs text-on-surface-variant">Turn your saved bookmarks into dynamic flashcards powered by
+                    the scenes you watched.</p>
+            </div>
+            <div
+                class="p-6 rounded-2xl bg-surface-container-high/20 border border-white/5 flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-tertiary/10 rounded-xl flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-tertiary">sync</span>
+                </div>
+                <h3 class="font-bold mb-2">Cloud Sync</h3>
+                <p class="text-xs text-on-surface-variant">Access your tricky word list from any device, anytime. Learn
+                    while you commute.</p>
+            </div>
+        </div>
+    </main>
+    <!-- Visual Polish: Floating Shapes -->
+    <div class="fixed top-1/4 -left-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -z-10 pointer-events-none">
+    </div>
+    <div
+        class="fixed bottom-1/4 -right-20 w-80 h-80 bg-secondary/5 blur-[120px] rounded-full -z-10 pointer-events-none">
+    </div>
+    <!-- Footer -->
+    <footer class="w-full py-16 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+            <div class="space-y-6">
+                <div class="text-2xl font-bold text-slate-900 dark:text-white tracking-tighter">
+                    <a href="index.html" class="flex gap-2 items-center">
+                        <img src="./images/subslator-logo.png" alt="Subslator" class="w-10 h-10 rounded-md" />
+                        <span>Subslator</span>
+                    </a>
+                </div>
+                <p class="font-inter text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Precision in every frame. Empowering learners to understand the
+                    world through cinema and storytelling.
+                </p>
+                <!-- <div class="flex gap-4">
+                <span
+                  class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-accent transition-colors"
+                  >language</span
+                >
+                <span
+                  class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-accent transition-colors"
+                  >share</span
+                >
+              </div> -->
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">
+                    Product
+                </h4>
+                <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                    href="#features">Features</a>
+                <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                    href="#how-it-works">How it Works</a>
+                <!-- <a
+                class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                href="#"
+                >Pricing</a
+              > -->
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">
+                    Legals
+                </h4>
+                <!-- <a
+                class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                href="#"
+                >Contact</a
+              > -->
+                <a class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                    href="privacy-policy.html">Privacy Policy</a>
+                <!-- <a
+                class="font-inter text-sm text-slate-500 dark:text-slate-400 hover:text-accent transition-colors hover:underline decoration-accent/30 underline-offset-4"
+                href="#"
+                >Terms of Service</a
+              > -->
+            </div>
+            <div class="space-y-6">
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-widest">
+                    Copyright
+                </h4>
+                <p class="font-inter text-sm text-slate-500 dark:text-slate-400">
+                    © 2026 Subslator. All rights reserved.
+                </p>
+                <div class="pt-4">
+                    <div
+                        class="inline-block px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 text-[10px] font-bold tracking-widest uppercase text-slate-500">
+                        v1.1.0-MVP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="toast">Awesome! We'll notify you when we launch! 🔔</div>
+
+    <script>
+        function showSuccess() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Optional logic for the shake animation 
+    </script>
+</body>
+
+</html>
